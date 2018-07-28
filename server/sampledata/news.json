@@ -1,0 +1,126 @@
+{
+    "status": "ok",
+    "totalResults": 10,
+    "articles": [
+        {
+            "source": {
+                "id": "crypto-coins-news",
+                "name": "Crypto Coins News"
+            },
+            "author": "https://www.facebook.com/JaredPolites",
+            "title": "Opinion | How Blockchain Could Fix Facebook's Fake News Problem",
+            "description": "Facebook has a big fake news problem, and the company can solve that issue by taking a serious look at blockchain technology.",
+            "url": "https://www.ccn.com/opinion-how-blockchain-could-fix-facebooks-fake-news-problem/",
+            "urlToImage": "https://www.ccn.com/wp-content/uploads/2017/06/Facebook-notifications.jpg",
+            "publishedAt": "2018-07-28T17:07:29Z"
+        },
+        {
+            "source": {
+                "id": "crypto-coins-news",
+                "name": "Crypto Coins News"
+            },
+            "author": null,
+            "title": "Interview: Joe Fanelli, Co-Founder of Top 21 Block Producer EOS Asia",
+            "description": "CCN interviews Joe Fanelli, a co-founder of EOS Asia, once of the 21 entities processing transactions for the fifth-largest cryptocurrency.",
+            "url": "https://www.ccn.com/interview-joe-fanelli-co-founder-of-top-21-block-producer-eos-asia/",
+            "urlToImage": "https://www.ccn.com/wp-content/uploads/2018/07/EOS-china-asia-imtoken.jpg",
+            "publishedAt": "2018-07-28T16:58:00Z"
+        },
+        {
+            "source": {
+                "id": "crypto-coins-news",
+                "name": "Crypto Coins News"
+            },
+            "author": null,
+            "title": "Crypto Market Rebounds, Bithumb Drives Kimchi Premium Up 50%",
+            "description": "Bithumb, formerly the biggest crypto exchange in South Korea, has driven the Kimchi Premium up 30 percent on major tokens, inflating the price of cryptocurrencies.",
+            "url": "https://www.ccn.com/crypto-market-rebounds-bithumb-drives-kimchi-premium-up-50/",
+            "urlToImage": "https://www.ccn.com/wp-content/uploads/2018/07/bitcoin-price-bounce-rebound-jump.jpg",
+            "publishedAt": "2018-07-28T16:47:34Z"
+        },
+        {
+            "source": {
+                "id": "crypto-coins-news",
+                "name": "Crypto Coins News"
+            },
+            "author": null,
+            "title": "Chinese Social Network Tianya is Launching a Native Cryptocurrency",
+            "description": "The Tianya Community in China, a social network of 130 million users that seeks to create the country’s most influential platform for content and knowledge creation, has announced a blockchain based initiative to rebuild its ecosystem. The new ecosystem will …",
+            "url": "https://www.ccn.com/chinese-social-network-tianya-is-launching-a-native-cryptocurrency/",
+            "urlToImage": "https://www.ccn.com/wp-content/uploads/2018/07/Tianya-.jpg",
+            "publishedAt": "2018-07-28T12:58:39Z"
+        },
+        {
+            "source": {
+                "id": "crypto-coins-news",
+                "name": "Crypto Coins News"
+            },
+            "author": null,
+            "title": "Crypto Exchange HitBTC Adds Support for Euro-Pegged Stablecoin 'EURS'",
+            "description": "There seems to be progress for the EURS stablecoin with the recent announcement that an institutional investor had snapped up a $10 million stake in the coin just a few days after it’s launching in Malta. Now, the coin achieved another milestone when it was r…",
+            "url": "https://www.ccn.com/crypto-exchange-hitbtc-adds-support-for-euro-pegged-stablecoin-eurs/",
+            "urlToImage": "https://www.ccn.com/wp-content/uploads/2018/07/Euro-coin.jpg",
+            "publishedAt": "2018-07-28T11:38:05Z"
+        },
+        {
+            "source": {
+                "id": "crypto-coins-news",
+                "name": "Crypto Coins News"
+            },
+            "author": null,
+            "title": "Romania Targets Cryptocurrencies With New Electronic Money Law",
+            "description": "Romania has become the latest country to institute a regulatory process expressly targeted at cryptocurrencies and digital currencies. A draft of an Emergency Ordinance published by the Romanian Ministry of Finance sets out the conditions and requirements tha…",
+            "url": "https://www.ccn.com/romania-targets-cryptocurrencies-with-new-electronic-money-law/",
+            "urlToImage": "https://www.ccn.com/wp-content/uploads/2014/10/romanians.jpg",
+            "publishedAt": "2018-07-28T10:21:27Z"
+        },
+        {
+            "source": {
+                "id": "crypto-coins-news",
+                "name": "Crypto Coins News"
+            },
+            "author": null,
+            "title": "London Remittance Firm Launches Cryptocurrency Trading Service",
+            "description": "London-based remittance firm TransferGo has launched a cryptocurrency trading service that supports five coins at launch.",
+            "url": "https://www.ccn.com/london-remittance-firm-launches-cryptocurrency-trading-service-says-theyre-here-to-stay/",
+            "urlToImage": "https://www.ccn.com/wp-content/uploads/2018/03/UK-bus-London.jpg",
+            "publishedAt": "2018-07-27T22:27:43Z"
+        },
+        {
+            "source": {
+                "id": "crypto-coins-news",
+                "name": "Crypto Coins News"
+            },
+            "author": "fb.me/mdsacramento",
+            "title": "Bitcoin Ransomware Creators Avoid Jail Time for $11,000 Heist",
+            "description": "Two brothers convicted of creating two bitcoin ransomware strains have narrowly avoided jail time for stealing more than $11,000 from at least 100 victims.",
+            "url": "https://www.ccn.com/bitcoin-ransomware-creators-avoid-jail-time-for-11000-heist/",
+            "urlToImage": "https://www.ccn.com/wp-content/uploads/2018/07/shutterstock_680078878.jpg",
+            "publishedAt": "2018-07-27T22:16:02Z"
+        },
+        {
+            "source": {
+                "id": "crypto-coins-news",
+                "name": "Crypto Coins News"
+            },
+            "author": null,
+            "title": "Tezos Foundation Taps ‘Big Four’ Firm PwC for Independent Audit",
+            "description": "The Tezos Foundation has hired \"Big Four\" auditor PwC to conduct an indepdendent, external audit of its balance sheet and operations.",
+            "url": "https://www.ccn.com/tezos-foundation-taps-big-four-firm-pwc-for-independent-audit/",
+            "urlToImage": "https://www.ccn.com/wp-content/uploads/2016/02/PwC-building.jpg",
+            "publishedAt": "2018-07-27T22:02:40Z"
+        },
+        {
+            "source": {
+                "id": "crypto-coins-news",
+                "name": "Crypto Coins News"
+            },
+            "author": null,
+            "title": "Circle Taps Fmr. Goldman Sachs Executive to Spearhead Regulatory Affairs",
+            "description": "Cryptocurrency firm Circle has hired a former Goldman Sachs executive to speerhead its regulatory efforts as it expands its global operations.",
+            "url": "https://www.ccn.com/circle-taps-fmr-goldman-sachs-executive-to-spearhead-regulatory-affairs/",
+            "urlToImage": "https://www.ccn.com/wp-content/uploads/2017/06/Goldman-Sachs.jpg",
+            "publishedAt": "2018-07-27T22:01:40Z"
+        }
+    ]
+}

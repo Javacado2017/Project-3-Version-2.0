@@ -1,0 +1,56 @@
+{
+    "Meta Data": {
+        "1. Information": "Intraday Prices and Volumes for Digital Currency",
+        "2. Digital Currency Code": "BTC",
+        "3. Digital Currency Name": "Bitcoin",
+        "4. Market Code": "USD",
+        "5. Market Name": "United States Dollar",
+        "6. Interval": "5min",
+        "7. Last Refreshed": "2018-07-28 20:25:00",
+        "8. Time Zone": "UTC"
+    },
+    "Time Series (Digital Currency Intraday)": {
+        "2018-07-28 20:25:00": {
+            "1a. price (USD)": "8188.24281421",
+            "1b. price (USD)": "8188.24281421",
+            "2. volume": "52390.23468116",
+            "3. market cap (USD)": "428983962.66277999"
+        },
+        "2018-07-28 20:20:00": {
+            "1a. price (USD)": "8192.00010744",
+            "1b. price (USD)": "8192.00010744",
+            "2. volume": "52435.41378681",
+            "3. market cap (USD)": "429550915.37503999"
+        },
+        "2018-07-28 20:15:00": {
+            "1a. price (USD)": "8191.34525968",
+            "1b. price (USD)": "8191.34525968",
+            "2. volume": "52786.24447914",
+            "3. market cap (USD)": "432390353.49040002"
+        },
+        "2018-07-28 20:10:00": {
+            "1a. price (USD)": "8194.56531249",
+            "1b. price (USD)": "8194.56531249",
+            "2. volume": "52845.18832539",
+            "3. market cap (USD)": "433043347.18327999"
+        },
+        "2018-07-28 20:05:00": {
+            "1a. price (USD)": "8194.77586170",
+            "1b. price (USD)": "8194.77586170",
+            "2. volume": "53060.56285285",
+            "3. market cap (USD)": "434819419.67484999"
+        },
+        "2018-07-28 20:00:00": {
+            "1a. price (USD)": "8194.41167296",
+            "1b. price (USD)": "8194.41167296",
+            "2. volume": "53223.81002370",
+            "3. market cap (USD)": "436137810.13745999"
+        },
+        "2018-07-28 19:55:00": {
+            "1a. price (USD)": "8194.50671703",
+            "1b. price (USD)": "8194.50671703",
+            "2. volume": "53314.85337666",
+            "3. market cap (USD)": "436888924.11269999"
+        }
+    }
+}
