@@ -1,8 +1,10 @@
 // DEPENDENCIES
 const axios = require('axios');
+const moment = reuire('moment');
 const config = require('../../config');
 
-var CryptoTrendsAPI = {
+
+var CryptoPriceTrendsAPI = {
     runQuery: function(tickerSymbol) {
   
         const APIKey = config.cyrptoTrendsAPI; 
@@ -10,29 +12,34 @@ var CryptoTrendsAPI = {
         
         return new Promise((resolve, reject) => {
           axios.get(baseURL)
-            .then(function(getTrendData) => {
-
-                if (response.data.length > 0) {
+            .then(function(response) => {
     
-                    var responses = [];
-    
-                    for (var i = 0; i < 30; i++) {
-                        var article = response.data.articles[i];
-                        var article = {
-                            title: article.title,
-                            description: article.description,
-                            url: article.url,  
-                            url: article.urlToImage,
-                            date: article.publishedAt.split('T')[0],
-                            articleID: article.publishedAt
-                        };
+                var objectTrends = response["Time Series (Digital Currency Daily)"];
+                const priceTrends = [];
+                let count = 0;
 
-                        responses.push(article);
+                if (Object.keys(objectTrends).length >0) {
+
+                    for (let key in objectTrends){
+            
+                        var priceData = objectTrends[key]["4a. close (USD)"]
+            
+                        priceTrends.push({
+                            d: moment(key).format('MMM DD'),
+                            p: parseFloat(priceData).toLocaleString('en-US',{ style: 'currency', currency: 'USD' }),
+                            x: count,
+                            y: objectTrends[key]["4a. close (USD)"]
+                        });
+
+                        count++;
+                      
+                        if (count > 30) {
+                            break;
+                        }
                     }
-                    return resolve(responses);
-
+                    return resolve(priceTrends);
                 } else {
-                    return reject('Alphavantage API: No data trends found.');
+                    return reject('Alphavantage API: No historical price data trends found.');
                 }
             })
             .catch((error) => {
@@ -43,37 +50,39 @@ var CryptoTrendsAPI = {
 };
 
 
-var CryptoCurrentAPI = {
+var CryptoPriceCurrentAPI = {
     runQuery: function(tickerSymbol) {
   
         const APIKey = config.cyrptoTrendsAPI; 
-        const baseURL = 'https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADA&symbol=' + tickerSymbol + '&market=USD&apikey=' + APIKey;
+        const baseURL = 'https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=' + tickerSymbol + '&market=USD&apikey=' + APIKey;
         
         return new Promise((resolve, reject) => {
           axios.get(baseURL)
-            .then(function(getTrendData) => {
+            .then(function(response) => {
 
-                if (response.data.length > 0) {
-    
-                    var responses = [];
-    
-                    for (var i = 0; i < 30; i++) {
-                        var article = response.data.articles[i];
-                        var article = {
-                            title: article.title,
-                            description: article.description,
-                            url: article.url,  
-                            url: article.urlToImage,
-                            date: article.publishedAt.split('T')[0],
-                            articleID: article.publishedAt
-                        };
+                var objectCurrent = response['Time Series (Digital Currency Intraday)'];
+                const priceCurrent = [];
+                let count = 0;
 
-                        responses.push(article);
+                if (Object.keys(objectCurrent).length > 0) {
+
+                    for (let key in objectCurrent){
+            
+                        priceCurrent.push({
+                            price: parseFloat(objectCurrent[key]["1a. price (USD)"].replace(/,/g, '')),
+                            currentPrice: parseFloat(objectCurrent[key]["1a. price (USD)"].replace(/,/g, '')),
+                            updatedAt: momment(objectCurrent).format('MMM DD, YYYY HH:MM:SS')
+                        });
+      
+                        count++;
+                      
+                        if (count > 0) {
+                            break;
+                        }
                     }
-                    return resolve(responses);
-
+                    return resolve(priceCurrent);
                 } else {
-                    return reject('Alphavantage API: No data trends found.');
+                    return reject('Alphavantage API: No current price data found.');
                 }
             })
             .catch((error) => {
@@ -83,5 +92,5 @@ var CryptoCurrentAPI = {
     },
 };
 
-module.exports = CryptoTrendsAPI;
-module.exports = CryptoCurrentAPI;
+module.exports = CryptoPriceTrendsAPI;
+module.exports = CryptoPriceCurrentAPI;
