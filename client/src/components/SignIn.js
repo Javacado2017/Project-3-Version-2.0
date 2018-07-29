@@ -50,7 +50,7 @@ const SignIn = ({onSubmit, onChange, errors, user, successMsg}) => (
                         </Button>
                     </div>
             
-                    <h2 className='card-footer'>Don't have an account?<Link to={'/signup'}>Sign Up</Link></h2>
+                    <p className='card-footer'>Don't have an account?<Link to={'/signup'}>Sign Up</Link></p>
                 </form>
             </CardContent>
         </Card>
