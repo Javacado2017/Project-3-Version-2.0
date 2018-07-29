@@ -22,7 +22,7 @@ var CryptoNewsAPI = {
                             title: article.title,
                             description: article.description,
                             url: article.url,  
-                            url: article.urlToImage,
+                            image: article.urlToImage,
                             date: article.publishedAt.split('T')[0],
                             articleID: article.publishedAt
                         };
