@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/App';
+import Charts from './components/Charts';
 
-ReactDOM.render(<App />, document.getElementById('react-app'));
+ReactDOM.render(<Charts />, document.getElementById('react-app'));

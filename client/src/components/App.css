@@ -1,0 +1,45 @@
+h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    color: #757575;
+  }
+  
+  #coindesk {
+    font-weight: 300;
+  }
+  
+  #coindesk a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .popup {
+    min-height: 50px;
+  }
+  
+  
+  .app__content {
+      background-image: url(https://farm1.static.flickr.com/429/31356169462_8f43e9d889_b.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+  
+  .app__content.alt-background {
+      background-image: none;
+  }
+  
+  .app__content.alt-background:before  {
+      content: "";
+      position: absolute;
+      background: url(https://farm1.static.flickr.com/429/31356169462_8f43e9d889_b.jpg);
+      background-size: cover;
+      z-index: -1; /* Keep the background behind the content */
+      height: 20%; width: 20%; /* Using Glen Maddern's trick /via @mente */
+  
+      /* don't forget to use the prefixes you need */
+      transform: scale(5);
+      transform-origin: top left;
+      filter: blur(.3px)
+  }
+  

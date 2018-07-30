@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 //import './home.css';
-import Trends from '../sub-components/Trends';
+import HomeChartsWidget from '../sub-components/HomeChartsWidget';
 import Button from '@material-ui/core/Button';
 
 import Typography from '@material-ui/core/Typography';
@@ -41,13 +41,13 @@ class Home extends Component {
                 </div>
                 <div className="home__card-container row">
                     <div className="col s3">
-                        <Trends />
+                        <HomeChartsWidget />
                     </div>
                     <div className="col s3">
-                        <Trends />
+                        <HomeChartsWidget />
                     </div>
                     <div className="col s3">
-                        <Trends />
+                        <HomeChartsWidget />
                     </div>
                     <div className="col s3">
                         <Trends />
