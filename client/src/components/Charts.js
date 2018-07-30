@@ -27,6 +27,8 @@ class Charts extends Component {
       activePoint: activePoint
     })
   }
+
+
   componentDidMount(){
     const getData = () => {
       const url = 'https://api.coindesk.com/v1/bpi/historical/close.json';

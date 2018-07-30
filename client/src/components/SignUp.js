@@ -20,15 +20,15 @@ const SignUp = ({onSubmit, onChange, errors, user}) => (
 
                     <h2 className='card-header'>Create an Account</h2>
 
-                    {errors.summary && <p className='error-message'>{errors.summary}</p>}
+                    {/* {errors.summary && <p className='error-message'>{errors.summary}</p>} */}
 
                     <div className='field-line'>
                         <TextField
                           label = 'First Name'
                           name='first name'
-                          errorText={errors.firstname}
-                          onChange={onChange}
-                          value={user.firstname}
+                        //   errorText={errors.firstname}
+                        //   onChange={onChange}
+                        //   value={user.firstname}
                         />
                     </div>
 
@@ -36,9 +36,9 @@ const SignUp = ({onSubmit, onChange, errors, user}) => (
                         <TextField
                           label = 'Last Name'
                           name='last name'
-                          errorText={errors.lastname}
-                          onChange={onChange}
-                          value={user.lastname}
+                        //   errorText={errors.lastname}
+                        //   onChange={onChange}
+                        //   value={user.lastname}
                         />
                     </div>
 
@@ -46,9 +46,9 @@ const SignUp = ({onSubmit, onChange, errors, user}) => (
                         <TextField
                         label = 'Email'
                         name='email'
-                        errorText={errors.email}
-                        onChange={onChange}
-                        value={user.email}
+                        // errorText={errors.email}
+                        // onChange={onChange}
+                        // value={user.email}
                         />
                     </div>
 
@@ -57,9 +57,9 @@ const SignUp = ({onSubmit, onChange, errors, user}) => (
                         label='Password'
                         type='password'
                         name='password'
-                        errorText={errors.password}
-                        onChange={onChange}
-                        value={user.password}
+                        // errorText={errors.password}
+                        // onChange={onChange}
+                        // value={user.password}
                         />
                     </div>
 
@@ -69,7 +69,9 @@ const SignUp = ({onSubmit, onChange, errors, user}) => (
                         </Button>
                     </div>
             
-                    <p className='card-footer'>Already have an account?<Link to={'/signin'}>Sign In</Link></p>
+                    <p className='card-footer'>Already have an account?
+                    {/* <Link to={'/signin'}>Sign In</Link> */}
+                    </p>
                 </form>
             </CardContent>
         </Card>

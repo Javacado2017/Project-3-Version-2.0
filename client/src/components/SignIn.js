@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -20,16 +20,16 @@ const SignIn = ({onSubmit, onChange, errors, user, successMsg}) => (
 
                     <h2 className='card-header'>Sign In</h2>
 
-                    {successMessage && <p className='success-message'>{successMessage}</p>}
-                    {errors.summary && <p className='error-message'>{errors.summary}</p>}
+                    {/* {successMessage && <p className='success-message'>{successMessage}</p>}
+                    {errors.summary && <p className='error-message'>{errors.summary}</p>} */}
 
                     <div className='field-line'>
                         <TextField
                         label = 'Email'
                         name='email'
-                        errorText={errors.email}
-                        onChange={onChange}
-                        value={user.email}
+                        // errorText={errors.email}
+                        // onChange={onChange}
+                        // value={user.email}
                         />
                     </div>
 
@@ -38,9 +38,9 @@ const SignIn = ({onSubmit, onChange, errors, user, successMsg}) => (
                         label='Password'
                         type='password'
                         name='password'
-                        errorText={errors.password}
-                        onChange={onChange}
-                        value={user.password}
+                        // errorText={errors.password}
+                        // onChange={onChange}
+                        // value={user.password}
                         />
                     </div>
 
@@ -50,7 +50,9 @@ const SignIn = ({onSubmit, onChange, errors, user, successMsg}) => (
                         </Button>
                     </div>
             
-                    <p className='card-footer'>Don't have an account?<Link to={'/signup'}>Sign Up</Link></p>
+                    <p className='card-footer'>Don't have an account?
+                    {/* <Link to={'/signup'}>Sign Up</Link> */}
+                    </p>
                 </form>
             </CardContent>
         </Card>
