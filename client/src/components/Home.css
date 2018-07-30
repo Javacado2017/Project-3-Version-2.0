@@ -1,0 +1,15 @@
+.app__content .MuiAppBar-root-4 {
+    background-color: transparent;
+    box-shadow: none !important;
+    color: white;
+}
+
+.nav__active-page {
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.nav__active-page i {
+    padding-left: 10px;
+    padding-right: 10px;
+}
