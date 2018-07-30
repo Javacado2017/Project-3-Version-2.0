@@ -19,9 +19,9 @@ class ChartsTickerSymbol extends Component {
   }
 
   //NOT SURE WHY THIS IS FLAGGING
-  handleChange = (event, value) => {
-    this.setState({ value });
-  }
+//   handleChange = (event, value) => {
+//     this.setState({ value });
+//   }
 
   render() {
     return (
