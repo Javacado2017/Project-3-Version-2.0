@@ -1,20 +1,22 @@
 // DEPENDENCIES
 const axios = require('axios');
-const moment = reuire('moment');
+const moment = require('moment');
 const config = require('../../config');
 
 
+//TickerSymbol is default
 var CryptoPriceTrendsAPI = {
-    runQuery: function(tickerSymbol) {
-  
+    
+    runQuery: function(tickerSymbol = 'BTC') {
+
         const APIKey = config.cyrptoTrendsAPI; 
         const baseURL = 'https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=' + tickerSymbol + '&market=USD&apikey=' + APIKey;
         
         return new Promise((resolve, reject) => {
           axios.get(baseURL)
-            .then(function(response) => {
-    
-                var objectTrends = response["Time Series (Digital Currency Daily)"];
+            .then(function(response) {
+                var objectTrends = response.data["Time Series (Digital Currency Daily)"];
+                console.log('hello' + objectTrends);
                 const priceTrends = [];
                 let count = 0;
 
@@ -36,13 +38,17 @@ var CryptoPriceTrendsAPI = {
                         if (count > 30) {
                             break;
                         }
+                        
                     }
+                    console.log('here is the data1: ' + priceTrends);
                     return resolve(priceTrends);
                 } else {
+                    console.log('here is the data2: ' + priceTrends);
                     return reject('Alphavantage API: No historical price data trends found.');
                 }
             })
             .catch((error) => {
+                console.log('broken');
               reject(error);
             });
         });
@@ -58,7 +64,7 @@ var CryptoPriceCurrentAPI = {
         
         return new Promise((resolve, reject) => {
           axios.get(baseURL)
-            .then(function(response) => {
+            .then(function(response) {
 
                 var objectCurrent = response['Time Series (Digital Currency Intraday)'];
                 const priceCurrent = [];
@@ -92,5 +98,7 @@ var CryptoPriceCurrentAPI = {
     },
 };
 
-module.exports = CryptoPriceTrendsAPI;
-module.exports = CryptoPriceCurrentAPI;
+module.exports =  {
+    CryptoPriceTrendsAPI,
+    CryptoPriceCurrentAPI
+};

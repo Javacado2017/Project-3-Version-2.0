@@ -31,26 +31,15 @@ class Charts extends Component {
 
   componentDidMount(){
     const getData = () => {
-      const url = 'https://api.coindesk.com/v1/bpi/historical/close.json';
+      const url = '/api/priceTrends';
 
       fetch(url).then( r => r.json())
-        .then((bitcoinData) => {
-          const sortedData = [];
-          let count = 0;
-          for (let date in bitcoinData.bpi){
-            sortedData.push({
-              d: moment(date).format('MMM DD'),
-              p: bitcoinData.bpi[date].toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
-              x: count, //previous days
-              y: bitcoinData.bpi[date] // numerical price
-            });
-            //console.log(sortedData);
-            count++;
-          }
+        .then((priceTrends) => {
+  
 
           
           this.setState({
-            data: sortedData,
+            data: priceTrends,
             fetchingData: false
           })
         })

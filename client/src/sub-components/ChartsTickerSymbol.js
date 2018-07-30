@@ -34,8 +34,8 @@ class ChartsTickerSymbol extends Component {
                         centered
                         indicatorColor="secondary"
                         textColor="secondary">
-                            <Tab icon={<i className="charts__crypto-icon fab fa-bitcoin"></i>} label="BCH" />
                             <Tab icon={<i className="charts__crypto-icon fab fa-btc"></i>} label="BTC" />
+                            <Tab icon={<i className="charts__crypto-icon fab fa-bitcoin"></i>} label="BHC" />
                             <Tab icon={<i className="charts__crypto-icon fab fa-ethereum"></i>} label="ETH" />
                             <Tab icon={<i className="charts__crypto-icon">&#x141;</i>} label="LTC" />
                     </Tabs>

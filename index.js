@@ -15,6 +15,9 @@ const app = express();
 app.use(express.static('./server/static/'));
 app.use(express.static('./client/dist/'));
 
+//API ROUTES
+app.use(require('./server/routes/api'));
+
 // SERVER FUNCTIONS: 
 // Tells app to open and start server
 const PORT = process.env.PORT || 8080
