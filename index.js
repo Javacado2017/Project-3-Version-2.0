@@ -16,7 +16,7 @@ app.use(express.static('./server/static/'));
 app.use(express.static('./client/dist/'));
 
 //API ROUTES
-app.use(require('./server/routes/api'));
+app.use(require('./server/routes/routers'));
 
 // SERVER FUNCTIONS: 
 // Tells app to open and start server

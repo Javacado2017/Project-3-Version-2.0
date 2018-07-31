@@ -14,7 +14,7 @@ var CryptoNewsAPI = {
 
                 if (response.data.articles.length > 0) {
     
-                    var responses = [];
+                    var newsArticles = [];
     
                     for (var i = 0; i < 10; i++) {
                         var article = response.data.articles[i];
@@ -27,12 +27,12 @@ var CryptoNewsAPI = {
                             articleID: article.publishedAt
                         };
 
-                        responses.push(article);
+                        newsArticles.push(article);
                     }
-                    return resolve(responses);
+                    return resolve(newsArticles);
 
                 } else {
-                    return reject('Crypto Coins News: No articles found.');
+                    return reject('Crypto Coins News: No news articles found.');
                 }
             })
             .catch((error) => {

@@ -4,6 +4,21 @@ const moment = require('moment');
 const config = require('../../config');
 
 
+var CryptoTickerSymbol = [
+    {
+        tickerSymbol: 'BTC',
+        iconClass: 'cf cf-btc'
+    },
+    {
+        tickerSymbol: 'ETH',
+        iconClass: 'cf cf-eth'
+    },
+    {
+        tickerSymbol: 'LTC',
+        iconClass: 'cf cf-ltc'
+    }
+];
+
 //TickerSymbol is default
 var CryptoPriceTrendsAPI = {
     
@@ -66,7 +81,7 @@ var CryptoPriceCurrentAPI = {
           axios.get(baseURL)
             .then(function(response) {
 
-                var objectCurrent = response['Time Series (Digital Currency Intraday)'];
+                var objectCurrent = response.data['Time Series (Digital Currency Intraday)'];
                 const priceCurrent = [];
                 let count = 0;
 
@@ -99,6 +114,7 @@ var CryptoPriceCurrentAPI = {
 };
 
 module.exports =  {
+    CryptoTickerSymbol,
     CryptoPriceTrendsAPI,
     CryptoPriceCurrentAPI
 };
