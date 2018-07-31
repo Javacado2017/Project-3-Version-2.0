@@ -55,7 +55,7 @@ class ButtonAppBar extends Component {
         <AppBar position="static" color="inherit">
           <Toolbar>
             <Typography variant="title" color="inherit" className={classes.flex}>
-              Blocktrain <span className="nav__active-page"> <i className="fas fa-caret-right"></i>{this.props.activeLayout.toUpperCase()}</span>
+              Blocktrain <span className="nav__active-page"> {this.props.activeLayout}</span>
             </Typography>
             <Button color="inherit">About</Button>
             <Button color="inherit">Sign up</Button>

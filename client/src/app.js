@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Charts from './components/Charts';
+import MainHeaderBar from './components/MainHeaderBar';
 
-ReactDOM.render(<Charts />, document.getElementById('react-app'));
+ReactDOM.render(<MainHeaderBar />, document.getElementById('react-app'));
