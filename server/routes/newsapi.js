@@ -10,7 +10,7 @@ var CryptoNewsAPI = {
         
         return new Promise((resolve, reject) => {
           axios.get(baseURL)
-            .then(function(response) => {
+            .then(function(response) {
 
                 if (response.data.articles.length > 0) {
     

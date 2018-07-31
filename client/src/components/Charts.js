@@ -32,12 +32,9 @@ class Charts extends Component {
   componentDidMount(){
     const getData = () => {
       const url = '/api/priceTrends';
-
+      
       fetch(url).then( r => r.json())
-        .then((priceTrends) => {
-  
-
-          
+        .then((priceTrends) => {    
           this.setState({
             data: priceTrends,
             fetchingData: false

@@ -12,22 +12,51 @@ class ChartsInfoBox extends Component {
       updatedAt: null
     }
   }
+  // componentDidMount(){
+  //   this.getData = () => {
+  //     const {data} = this.props;
+  //     const url = 'https://api.coindesk.com/v1/bpi/currentprice.json';
+
+  //     fetch(url).then(r => r.json())
+  //       .then((bitcoinData) => {
+  //         const price = bitcoinData.bpi.USD.rate_float;
+  //         console.log('price ' + price + typeof price);
+  //         console.log(bitcoinData.bpi.USD.rate_float);
+  //         console.log(bitcoinData.time.updated);
+  //         const change = price - data[0].y;
+  //         const changeP = (price - data[0].y) / data[0].y * 100;
+  //         this.setState({
+  //           currentPrice: bitcoinData.bpi.USD.rate_float,
+  //           monthChangeD: change.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
+  //           monthChangeP: changeP.toFixed(2) + '%',
+  //           updatedAt: bitcoinData.time.updated
+  //         })
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //       });
+  //   }
+  //   this.getData();
+  //   this.refresh = setInterval(() => this.getData(), 90000);
+  // }
+
   componentDidMount(){
     this.getData = () => {
       const {data} = this.props;
-      const url = 'https://api.coindesk.com/v1/bpi/currentprice.json';
-
+      const url = '/api/priceCurrent';
+      
       fetch(url).then(r => r.json())
-        .then((bitcoinData) => {
-          const price = bitcoinData.bpi.USD.rate_float;
+        .then((priceCurrent) => {
+
+          const price = priceCurrent.price;
           const change = price - data[0].y;
           const changeP = (price - data[0].y) / data[0].y * 100;
 
           this.setState({
-            currentPrice: bitcoinData.bpi.USD.rate_float,
+            currentPrice: priceCurrent.price,
             monthChangeD: change.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
             monthChangeP: changeP.toFixed(2) + '%',
-            updatedAt: bitcoinData.time.updated
+            updatedAt: priceCurrent.updatedAt
           })
         })
         .catch((e) => {
