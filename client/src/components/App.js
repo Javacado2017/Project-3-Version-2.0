@@ -1,35 +1,16 @@
+import React, { Component, Fragment } from 'react';
+import { MainHeaderBar, MainFooterBar } from './Layouts';
 
-import React, { Component } from 'react';
-import moment from 'moment';
-import './App.css';
-import Home from './components/Home';
-import Charts from './components/Charts';
-
-import Nav from './components/MainHeaderBar';
-// const config = require('../server/config');
-// console.log(config.cryptoAPI)
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        currentPage: 'home'
-    }
-  }
+export default class extends Component {
   render() {
-    var layout = <Home />;
+    return <Fragment>
+      <MainHeaderBar/>
 
-    if (this.state.currentPage === 'charts') {
-        layout = <Charts />;
-    }
+      <MainFooterBar/>
+      
+      </Fragment>
 
-    return (
-      <div className={this.state.currentPage === 'home' ? 'app__content' : 'app__content alt-background'}>
-        <MainHeaderBar activeLayout={this.state.currentPage}/>
-        {layout}
-      </div>
-    );
   }
 }
 
-export default App;
+

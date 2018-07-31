@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 
-import MainHeaderBar from './components/MainHeaderBar';
+import App from './components/App';
 
-ReactDOM.render(<MainHeaderBar />, document.getElementById('react-app'));
+render(<App />, document.getElementById('react-app'));
