@@ -7,15 +7,10 @@ const CryptoNewsAPI = require('./newsapi.js').CryptoNewsAPI;
 
 const router = new express.Router();
 
-// CryptoAPI: ticker symbols
-router.get('/api/tickerSymbol', (req, res) => {
-    
-    CryptoTickerSymbol.runQuery()
-    .then(result => {
-        return res.status(200).json(result);
-    })
-    .catch();
-});
+// // CryptoAPI: ticker symbols
+// router.get('/api/tickerSymbol', (req, res) => {
+//     return res.status(200).json(CryptoTickerSymbol);
+// });
 
 // CryptoAPI: price trends
 router.get('/api/priceTrends', (req, res) => {

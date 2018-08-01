@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ChartsToolTip.css';
+import './stylesheets/ChartsToolTip.css';
 
 class ChartsToolTip extends Component {
 

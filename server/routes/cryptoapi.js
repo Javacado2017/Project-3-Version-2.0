@@ -4,20 +4,20 @@ const moment = require('moment');
 const config = require('../../config');
 
 
-var CryptoTickerSymbol = [
-    {
-        tickerSymbol: 'BTC',
-        iconClass: 'cf cf-btc'
-    },
-    {
-        tickerSymbol: 'ETH',
-        iconClass: 'cf cf-eth'
-    },
-    {
-        tickerSymbol: 'LTC',
-        iconClass: 'cf cf-ltc'
-    }
-];
+// var CryptoTickerSymbol = {
+//     BTC: {
+//         coinName: 'BitCoin',
+//         iconClass: 'cf cf-btc'
+//     },
+//     ETH: {
+//         coinName: 'Etherium',
+//         iconClass: 'cf cf-eth'
+//     },
+//     LTC: {
+//         coinName: 'Litecoin',
+//         iconClass: 'cf cf-ltc'
+//     }
+// };
 
 //TickerSymbol is default
 var CryptoPriceTrendsAPI = {
@@ -116,7 +116,7 @@ var CryptoPriceCurrentAPI = {
 };
 
 module.exports =  {
-    CryptoTickerSymbol,
+//    CryptoTickerSymbol,
     CryptoPriceTrendsAPI,
     CryptoPriceCurrentAPI
 };

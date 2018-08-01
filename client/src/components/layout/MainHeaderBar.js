@@ -15,7 +15,6 @@ const styles = {
 
 const MainHeaderBar = ({ classes }) => (
   <div className={classes.root}>
-    <AppBar position="static" color="inherit">
       <Toolbar>
         <Typography variant="title" color="inherit" className={classes.flex}>
           BlockTrain
@@ -24,7 +23,6 @@ const MainHeaderBar = ({ classes }) => (
         <Button color="inherit">Sign In</Button>
         <Button color="inherit">Sign Up</Button>
       </Toolbar>
-    </AppBar>
   </div>
 );
 

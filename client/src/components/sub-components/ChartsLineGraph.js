@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import "./ChartsLineGraph.css";
+import "./stylesheets/ChartsLineGraph.css";
 
 class ChartsLineGraph extends Component {
   constructor(props) {

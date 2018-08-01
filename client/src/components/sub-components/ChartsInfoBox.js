@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import './ChartsInfoBox.css';
+import './stylesheets/ChartsInfoBox.css';
 
 class ChartsInfoBox extends Component {
   constructor(props) {
