@@ -19,7 +19,9 @@ const MainHeaderBar = ({ classes }) => (
         <Typography variant="title" color="inherit" className={classes.flex}>
           BlockTrain
         </Typography>
-        <Button color="inherit">Sign Up</Button>
+        
+        <Button color="inherit">My Dashboard</Button>
+        <Button color="inherit">Sign Out</Button>
         <Button color="inherit">Sign In</Button>
         <Button color="inherit">Sign Up</Button>
       </Toolbar>

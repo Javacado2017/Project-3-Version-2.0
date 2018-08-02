@@ -1,70 +1,102 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import authenticate from '../modules/authenticate';
+import SignInForm from '../sub-components/SignInForm.js';
 
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 
-const styles = {
-  disableUnderline: true
-};
+class SignIn extends React.Component {
 
-function SignIn(props) {
-  const { onSubmit, onChange, errors, user, successMsg } = props;
+  constructor(props, context) {
+    super(props, context);
 
-  return (
-    <Card align="center">
-      <CardContent>
-        <form>
-          <div class="row">
-            <Typography gutterBottom variant="headline" component="h2">
-              SIGN IN TO YOUR ACCOUNT
-            </Typography>
-          </div>
-          <div class="row">
-            <div class="col s6">
-              <TextField
-                name="email"
-                label="Enter Email"
-                margin="normal"
-                InputProps={styles}
-                InputLabelProps={styles}
-              />
-            </div>
-            <div class="col s6">
-              <TextField
-                name="name"
-                type="password"
-                label="Enter Password"
-                margin="normal"
-                InputProps={styles}
-                InputLabelProps={styles}
-              />
-            </div>
-          </div>
-          <div class="row">
-            <Button size="large" color="primary">
-              <a href="#">Sign In</a>
-            </Button>
-          </div>
-          <p>
-            Don't have an account?
-            <a href="#">Sign Up</a>
-          </p>
-        </form>
-      </CardContent>
-    </Card>
-  );
+    const storedMessage = localStorage.getItem('successMessage');
+    let successMessage = '';
+
+    if (storedMessage) {
+      successMessage = storedMessage;
+      localStorage.removeItem('successMessage');
+    }
+
+    this.state = {
+      errors: {},
+      successMessage,
+      user: {
+        email: '',
+        password: ''
+      }
+    };
+
+    this.processForm = this.processForm.bind(this);
+    this.changeUser = this.changeUser.bind(this);
+  }
+
+  processForm(event) {
+    event.preventDefault();
+
+    const email = encodeURIComponent(this.state.user.email);
+    const password = encodeURIComponent(this.state.user.password);
+    const formData = `email=${email}&password=${password}`;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('post', '/auth/login');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', () => {
+      if (xhr.status === 200) {
+        this.setState({
+          errors: {}
+        });
+
+        Auth.authenticateUser(xhr.response.token);
+
+        // update authenticated state
+        this.props.toggleAuthenticateStatus()
+
+        // redirect signed in user to dashboard
+        this.props.history.push('/dashboard');
+      } else {
+        // failure
+
+        // change the component state
+        const errors = xhr.response.errors ? xhr.response.errors : {};
+        errors.summary = xhr.response.message;
+
+        this.setState({
+          errors
+        });
+      }
+    });
+    xhr.send(formData);
+  }
+
+  //Change the user object.
+    changeUser(event) {
+    const field = event.target.name;
+    const user = this.state.user;
+    user[field] = event.target.value;
+
+    this.setState({
+      user
+    });
+  }
+
+
+  render() {
+    return (
+      <SignInForm
+        onSubmit={this.processForm}
+        onChange={this.changeUser}
+        errors={this.state.errors}
+        successMessage={this.state.successMessage}
+        user={this.state.user}
+      />
+    );
+  }
+
 }
 
-SignIn.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
-  successMsg: PropTypes.string.isRequired
+SignIn.contextTypes = {
+  router: PropTypes.object.isRequired
 };
 
 export default SignIn;

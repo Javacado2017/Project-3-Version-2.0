@@ -12,60 +12,28 @@ class ChartsInfoBox extends Component {
       updatedAt: null
     }
   }
-  // componentDidMount(){
-  //   this.getData = () => {
-  //     const {data} = this.props;
-  //     const url = 'https://api.coindesk.com/v1/bpi/currentprice.json';
-
-  //     fetch(url).then(r => r.json())
-  //       .then((bitcoinData) => {
-  //         const price = bitcoinData.bpi.USD.rate_float;
-  //         console.log('price ' + price + typeof price);
-  //         console.log(bitcoinData.bpi.USD.rate_float);
-  //         console.log(bitcoinData.time.updated);
-  //         const change = price - data[0].y;
-  //         const changeP = (price - data[0].y) / data[0].y * 100;
-  //         this.setState({
-  //           currentPrice: bitcoinData.bpi.USD.rate_float,
-  //           monthChangeD: change.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
-  //           monthChangeP: changeP.toFixed(2) + '%',
-  //           updatedAt: bitcoinData.time.updated
-  //         })
-  //       })
-  //       .catch((e) => {
-  //         console.log(e);
-  //       });
-  //   }
-  //   this.getData();
-  //   this.refresh = setInterval(() => this.getData(), 90000);
-  // }
-
-  componentDidMount(){
-    this.getData = () => {
-      const {data} = this.props;
-      const url = '/api/priceCurrent';
-      
-      fetch(url).then(r => r.json())
-        .then((priceCurrent) => {
-
-          const price = priceCurrent.price;
-          const change = price - data[0].y;
-          const changeP = (price - data[0].y) / data[0].y * 100;
-
-          this.setState({
-            currentPrice: priceCurrent.price,
-            monthChangeD: change.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
-            monthChangeP: changeP.toFixed(2) + '%',
-            updatedAt: priceCurrent.updatedAt
-          })
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    }
-    this.getData();
+   componentDidMount(){
+    this.getData(this.props.data, this.props.type);
     this.refresh = setInterval(() => this.getData(), 90000);
   }
+
+  getData (data, type) {
+     const price = parseFloat(data[data.length - 1].y);
+     const change = price - parseFloat(data[0].y);
+     const changeP = (price - parseFloat(data[0].y)) / parseFloat(data[0].y) * 100;
+
+     this.setState({
+       currentPrice: price,
+       monthChangeD: change.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
+       monthChangeP: changeP.toFixed(2) + '%'
+   });
+  }
+
+  componentWillReceiveProps(nextProps) {
+  if (nextProps.type !== this.props.type) {
+    this.getData(nextProps.data, nextProps.type);
+  }
+}
 
   componentWillUnmount(){
     clearInterval(this.refresh);
@@ -76,7 +44,7 @@ class ChartsInfoBox extends Component {
         { this.state.currentPrice ?
           <div id="left" className='box'>
             <div className="heading">{this.state.currentPrice.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' })}</div>
-            <div className="subtext">{'Updated ' + moment(this.state.updatedAt ).fromNow()}</div>
+            <div className="subtext">Current price</div>
           </div>
         : null}
         { this.state.currentPrice ?

@@ -1,43 +1,24 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import './stylesheets/ChartsToolTip.css';
 
-import { withStyles } from "@material-ui/core/styles";
-import { Paper, Tabs, Tab } from "@material-ui/core/";
+class ChartsToolTip extends Component {
 
-const styles = {
-  root: {
-    flexGrow: 1
+  render() {
+    const {hoverLoc, activePoint} = this.props;
+    const svgLocation = document.getElementsByClassName("linechart")[0].getBoundingClientRect();
+
+    let placementStyles = {};
+    let width = 100;
+    placementStyles.width = width + 'px';
+    placementStyles.left = hoverLoc + svgLocation.left - (width/2);
+
+    return (
+      <div className='hover' style={ placementStyles }>
+        <div className='date'>{ activePoint.d }</div>
+        <div className='price'>{activePoint.p }</div>
+      </div>
+    )
   }
-};
+}
 
-const cryptoInformation = {
-  BTC: {
-    coinName: "BitCoin",
-    iconClass: "cf cf-btc"
-  },
-  ETH: {
-    coinName: "Etherium",
-    iconClass: "cf cf-eth"
-  },
-  LTC: {
-    coinName: "Litecoin",
-    iconClass: "cf cf-ltc"
-  }
-};
-
-const ChartsTickerSymbol = ({ classes }) => (
-  <Paper className={classes.root}>
-    <Tabs value={0} indicatorColor="primary" textColor="primary" centered>
-      {Object.keys(cryptoInformation).map(tickersymbol => (
-        <Tab label={tickersymbol} />
-      ))}
-    </Tabs>
-    <Paper>(charts go there)</Paper>
-  </Paper>
-);
-
-ChartsTickerSymbol.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
-export default withStyles(styles)(ChartsTickerSymbol);
+export default ChartsToolTip;

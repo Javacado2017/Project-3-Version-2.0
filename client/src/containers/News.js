@@ -1,25 +1,22 @@
 
 import React, { Component } from 'react';
-
-import ChartsTickerSymbol from '../sub-components/ChartsTickerSymbol';
-
-
+import NewsArticle from '../sub-components/NewsArticleWidget';
 
 class News extends Component {
   constructor(props) {
     super(props);
     this.state = {
       fetchingData: true,
-      data: null,
+      data: [],
     }
   }
 
   componentDidMount(){
     const getData = () => {
       const url = '/api/newsArticles';
-      
+
       fetch(url).then( r => r.json())
-        .then((newsArticles) => {    
+        .then((newsArticles) => {
           this.setState({
             data: newsArticles,
             fetchingData: false
@@ -35,32 +32,18 @@ class News extends Component {
 
   render() {
     return (
-
-      <div className="chart-spread">
-      <div className='row'>
-        <ChartsTickerSymbol/>
-      </div>
-      <div className='row'>
-        { !this.state.fetchingData ?
-        <ChartsInfoBox data={this.state.data} />
-        : null }
-      </div>
-      <div className='row'>
-        <div className='popup'>
-          {this.state.hoverLoc ? <ChartsToolTip hoverLoc={this.state.hoverLoc} activePoint={this.state.activePoint}/> : null}
+        <div>
+        {this.state.data.map((article, index) => {
+            return <NewsArticle
+                key={'news-article' + index}
+                title={article.title}
+                description={article.description}
+                url={article.url}
+                image={article.image}/>;
+        })}
         </div>
-      </div>
-        <div className='row'>
-          <div className='chart col s12'>
-            { !this.state.fetchingData ?
-              <ChartsLineGraph data={this.state.data} onChartHover={ (a,b) => this.handleChartHover(a,b) }/>
-              : null }
-          </div>
-        </div>
-      </div>
-
     );
   }
 }
 
-export default Charts;
+export default News;
