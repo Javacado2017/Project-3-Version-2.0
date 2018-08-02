@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
 
 
   render() {
-    return (<DashboardUserWidget secretData={this.state.secretData} user={this.state.user} />);
+    return (<DashboardUserWidget secretData={this.state.secretData} user={this.state.user}/>);
   }
 
 }

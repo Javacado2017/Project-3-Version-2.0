@@ -96,21 +96,22 @@ class App extends Component {
             <div>
         <Toolbar>
           <Typography variant="title" color="inherit" >
-            <Link to="/">BlockTrain</Link>
+            <Link to="/">Block Train</Link>
           </Typography>
-
+            <div>
+            </div>
           {this.state.authenticated ? (
             <div>
-            <Button color="inherit"> <Link to="/dashboard">Dashboard</Link></Button>
+            <Button color="inherit"> <Link to="/dashboard">My Dashboard</Link></Button>
+            <Button color="inherit"> <Link to="/charts"> My Charts</Link></Button>
+            <Button color="inherit"> <Link to="/news">My News</Link></Button>
             <Button color="inherit"> <Link to="/signout">Sign Out</Link></Button>  
             </div>
           ) : (
             <div>
-           
             <Button color="inherit"> <Link to="/signup">Sign Up</Link></Button>
             <Button color="inherit"> <Link to="/signin">Sign In</Link></Button>
-            <Button color="inherit"> <Link to="/charts">Charts</Link></Button>
-            <Button color="inherit"> <Link to="/news">News</Link></Button>
+      
             </div>
           )}
            
@@ -122,8 +123,8 @@ class App extends Component {
             <PrivateRoute path="/dashboard" component={Dashboard}/>
             <LoggedOutRoute path="/signin" component={SignIn} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <LoggedOutRoute path="/signup" component={SignUp}/>
-            <LoggedOutRoute path="/charts" component={Charts}/>
-            <LoggedOutRoute path="/news" component={News}/>
+            <PropsRoute path="/charts" component={Charts}/>
+            <PropsRoute path="/news" component={News}/>
             <Route path="/signout" component={SignOut}/>
           </div>
 

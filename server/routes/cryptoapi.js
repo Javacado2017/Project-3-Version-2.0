@@ -25,6 +25,7 @@ var CryptoPriceTrendsAPI = {
     runQuery: function(tickerSymbol = 'BTC') {
         const APIKey = config.cyrptoTrendsAPI;
         const baseURL = 'https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=' + tickerSymbol + '&market=USD&apikey=' + APIKey;
+      
         return new Promise((resolve, reject) => {
           axios.get(baseURL)
             .then(function(response) {

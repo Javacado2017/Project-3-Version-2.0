@@ -5,7 +5,9 @@ import Auth from '../modules/Auth';
 import { withStyles } from "@material-ui/core/styles";
 import { Grid, Card, CardContent, Typography } from "@material-ui/core/";
 import HomeUserIntro from "../components/HomeUserIntro";
-import HomeChartsWidget from "../components/HomeChartsWidget";
+import HomeChartsWidgetBTC from "../components/HomeChartsWidgetBTC";
+import HomeChartsWidgetETH from "../components/HomeChartsWidgetETH";
+import HomeChartsWidgetLTC from "../components/HomeChartsWidgetLTC";
 
 const styles = {
   root: {
@@ -45,13 +47,13 @@ class Home extends React.Component {
 
             <Grid container justify={"center"} spacing={24}>
               <Grid item xs={3}>
-                <HomeChartsWidget />
+                <HomeChartsWidgetBTC />
               </Grid>
               <Grid item xs={3}>
-                <HomeChartsWidget />
+                <HomeChartsWidgetETH />
               </Grid>
               <Grid item xs={3}>
-                <HomeChartsWidget />
+                <HomeChartsWidgetLTC />
               </Grid>
             </Grid>
  

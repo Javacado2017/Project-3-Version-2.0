@@ -7,6 +7,10 @@ const config = require("../../config");
 
 //AUTHENTICATION CHECKER WITH JSON WEB TOKENS
 module.exports = (req, res, next) => {
+console.log(req.url);
+  if (req.baseUrl.includes('/api') && !req.url.includes('/dashboard')) {
+    return next();
+  }
   if (!req.headers.authorization) {
     return res.status(401).end();
   }
