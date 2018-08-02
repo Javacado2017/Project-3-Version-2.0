@@ -1,7 +1,7 @@
 // CREATE USER-NOTES SCHEMA
 
 // DEPENDENCY FUNCTIONS:
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 // DEFINE SCHEMA
 const chartSchema = new mongoose.Schema({
@@ -9,4 +9,4 @@ const chartSchema = new mongoose.Schema({
     tickerSymbol: String
 });
 
-module.exports = mongoose.model('chart', chartSchema);
+module.exports = mongoose.model("chart", chartSchema);

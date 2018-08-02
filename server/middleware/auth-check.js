@@ -1,9 +1,9 @@
 // CREATE MIDDLEWARE FUNCTIONS FOR AUTHENICATION CHECKS
 
 // DEPENDENCIES
-const jwt = require('jsonwebtoken');
-const User = require('mongoose').model('User');
-const config = require('../../config');
+const jwt = require("jsonwebtoken");
+const User = require("mongoose").model("User");
+const config = require("../../config");
 
 //AUTHENTICATION CHECKER WITH JSON WEB TOKENS
 module.exports = (req, res, next) => {
@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
     return res.status(401).end();
   }
 
-  const token = req.headers.authorization.split(' ')[1];
+  const token = req.headers.authorization.split(" ")[1];
 
   return jwt.verify(token, config.jwtSecret, (err, decoded) => {
     if (err) {

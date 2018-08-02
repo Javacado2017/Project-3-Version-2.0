@@ -1,36 +1,36 @@
 // DEPENDENCIES
-const axios = require('axios');
-const moment = require('moment');
-const config = require('../../config');
+const axios = require("axios");
+const moment = require("moment");
+const config = require("../../config");
 
 
 // var CryptoTickerSymbol = {
 //     BTC: {
-//         coinName: 'BitCoin',
-//         iconClass: 'cf cf-btc'
+//         coinName: "BitCoin",
+//         iconClass: "cf cf-btc"
 //     },
 //     ETH: {
-//         coinName: 'Etherium',
-//         iconClass: 'cf cf-eth'
+//         coinName: "Etherium",
+//         iconClass: "cf cf-eth"
 //     },
 //     LTC: {
-//         coinName: 'Litecoin',
-//         iconClass: 'cf cf-ltc'
+//         coinName: "Litecoin",
+//         iconClass: "cf cf-ltc"
 //     }
 // };
 
 //TickerSymbol is default
 var CryptoPriceTrendsAPI = {
     
-    runQuery: function(tickerSymbol = 'BTC') {
+    runQuery: function(tickerSymbol = "BTC") {
 
         const APIKey = config.cyrptoTrendsAPI; 
-        const baseURL = 'https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=' + tickerSymbol + '&market=USD&apikey=' + APIKey;
+        const baseURL = "https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=" + tickerSymbol + "&market=USD&apikey=" + APIKey;
         
         return new Promise((resolve, reject) => {
           axios.get(baseURL)
             .then(function(response) {
-                var objectTrends = response.data['Time Series (Digital Currency Daily)'];
+                var objectTrends = response.data["Time Series (Digital Currency Daily)"];
                 
                 const priceTrends = [];
                 let count = 0;
@@ -39,11 +39,11 @@ var CryptoPriceTrendsAPI = {
 
                     for (let key in objectTrends){
             
-                        var priceData = objectTrends[key]['4a. close (USD)']
+                        var priceData = objectTrends[key]["4a. close (USD)"]
             
                         priceTrends.push({
-                            d: moment(key).format('MMM DD'),
-                            p: parseFloat(priceData).toLocaleString('en-US',{ style: 'currency', currency: 'USD' }),
+                            d: moment(key).format("MMM DD"),
+                            p: parseFloat(priceData).toLocaleString("en-US",{ style: "currency", currency: "USD" }),
                             x: count,
                             y: priceData
                         });
@@ -59,7 +59,7 @@ var CryptoPriceTrendsAPI = {
                     return resolve(priceTrends);
                 } else {
                     
-                    return reject('Alphavantage API: No historical price data trends found.');
+                    return reject("Alphavantage API: No historical price data trends found.");
                 }
             })
             .catch((error) => {
@@ -72,16 +72,16 @@ var CryptoPriceTrendsAPI = {
 
 
 var CryptoPriceCurrentAPI = {
-    runQuery: function(tickerSymbol = 'BTC') {
+    runQuery: function(tickerSymbol = "BTC") {
         
         const APIKey = config.cyrptoTrendsAPI; 
-        const baseURL = 'https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=' + tickerSymbol + '&market=USD&apikey=' + APIKey;
+        const baseURL = "https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_INTRADAY&symbol=" + tickerSymbol + "&market=USD&apikey=" + APIKey;
             
         return new Promise((resolve, reject) => {
           axios.get(baseURL)
             .then(function(response) {
                
-                var objectCurrent = response.data['Time Series (Digital Currency Intraday)'];
+                var objectCurrent = response.data["Time Series (Digital Currency Intraday)"];
                
                 const priceCurrent = [];
                 let count = 0;
@@ -90,12 +90,12 @@ var CryptoPriceCurrentAPI = {
 
                     for (let key in objectCurrent){
                         
-                        var priceData = objectCurrent[key]['1a. price (USD)']
+                        var priceData = objectCurrent[key]["1a. price (USD)"]
 
                         priceCurrent.push({
-                            price: parseFloat(priceData.replace(/,/g, '')),
-                            currentPrice: parseFloat(priceData.replace(/,/g, '')),
-                            updatedAt: moment(key).format('MMM DD YYYY')
+                            price: parseFloat(priceData.replace(/,/g, "")),
+                            currentPrice: parseFloat(priceData.replace(/,/g, "")),
+                            updatedAt: moment(key).format("MMM DD YYYY")
                         });
                         count++;
                         console.log(priceCurrent);
@@ -105,7 +105,7 @@ var CryptoPriceCurrentAPI = {
                     }
                     return resolve(priceCurrent);
                 } else {
-                    return reject('Alphavantage API: No current price data found.');
+                    return reject("Alphavantage API: No current price data found.");
                 }
             })
             .catch((error) => {

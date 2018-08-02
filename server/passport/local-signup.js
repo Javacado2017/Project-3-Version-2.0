@@ -1,13 +1,13 @@
 // CREATING PASSPORT SIGNUP STRATEGY
 
 // DEPENDENCIES
-const User = require('mongoose').model('User');
-const PassportLocalStrategy = require('passport-local').Strategy;
+const User = require("mongoose").model("User");
+const PassportLocalStrategy = require("passport-local").Strategy;
 
 // SIGNUP PASSPORT CONFIGURATION
 module.exports = new PassportLocalStrategy({
-  usernameField: 'email',
-  passwordField: 'password',
+  usernameField: "email",
+  passwordField: "password",
   session: false,
   passReqToCallback: true
 }, (req, email, password, done) => {

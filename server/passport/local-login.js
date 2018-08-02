@@ -1,15 +1,15 @@
 // CREATING PASSPORT LOCAL STRATEGY
 
 // DEPENDENCIES
-const jwt = require('jsonwebtoken');
-const User = require('mongoose').model('User');
-const PassportLocalStrategy = require('passport-local').Strategy;
-const config = require('../../config');
+const jwt = require("jsonwebtoken");
+const User = require("mongoose").model("User");
+const PassportLocalStrategy = require("passport-local").Strategy;
+const config = require("../../config");
 
 // LOCAL PASSPORT CONFIGURATION
 module.exports = new PassportLocalStrategy({
-  usernameField: 'email',
-  passwordField: 'password',
+  usernameField: "email",
+  passwordField: "password",
   session: false,
   passReqToCallback: true
 }, (req, email, password, done) => {
@@ -22,8 +22,8 @@ module.exports = new PassportLocalStrategy({
     if (err) { return done(err); }
 
     if (!user) {
-      const error = new Error('Incorrect email or password');
-      error.name = 'IncorrectCredentialsError';
+      const error = new Error("Incorrect email or password");
+      error.name = "IncorrectCredentialsError";
       return done(error);
     }
 
@@ -31,8 +31,8 @@ module.exports = new PassportLocalStrategy({
       if (err) { return done(err); }
 
       if (!isMatch) {
-        const error = new Error('Incorrect email or password');
-        error.name = 'IncorrectCredentialsError';
+        const error = new Error("Incorrect email or password");
+        error.name = "IncorrectCredentialsError";
         return done(error);
       }
 

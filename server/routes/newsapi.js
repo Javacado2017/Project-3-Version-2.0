@@ -1,12 +1,12 @@
 // DEPENDENCIES
-const axios = require('axios');
-const config = require('../../config');
+const axios = require("axios");
+const config = require("../../config");
 
 var CryptoNewsAPI = {
     runQuery: function() {
   
         const APIKey = config.cryptoNewsAPI; 
-        const baseURL = 'https://newsapi.org/v2/top-headlines?sources=crypto-coins-news&apiKey=' + APIKey;
+        const baseURL = "https://newsapi.org/v2/top-headlines?sources=crypto-coins-news&apiKey=" + APIKey;
         
         return new Promise((resolve, reject) => {
           axios.get(baseURL)
@@ -23,7 +23,7 @@ var CryptoNewsAPI = {
                             description: article.description,
                             url: article.url,  
                             image: article.urlToImage,
-                            date: article.publishedAt.split('T')[0],
+                            date: article.publishedAt.split("T")[0],
                             articleID: article.publishedAt
                         };
 
@@ -32,7 +32,7 @@ var CryptoNewsAPI = {
                     return resolve(newsArticles);
 
                 } else {
-                    return reject('Crypto Coins News: No news articles found.');
+                    return reject("Crypto Coins News: No news articles found.");
                 }
             })
             .catch((error) => {
@@ -42,15 +42,15 @@ var CryptoNewsAPI = {
     },
 
     getSaved: function() {
-        return axios.get('/api/saved');
+        return axios.get("/api/saved");
     },
 
     postSaved: function(article) {
-        return axios.post('/api/saved', article);
+        return axios.post("/api/saved", article);
     },
 
     deleteSaved: function(articleID) {
-        return axios.delete('/api/saved/' + articleID);
+        return axios.delete("/api/saved/" + articleID);
     }
 
 };

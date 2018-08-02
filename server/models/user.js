@@ -1,8 +1,8 @@
 // CREATE USER SCHEMA
 
 // DEPENDENCIES
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
 // DEFINE SCHEMA
 const UserSchema = new mongoose.Schema({
@@ -22,10 +22,10 @@ UserSchema.methods.comparePassword = function comparePassword(
   bcrypt.compare(password, this.password, callback);
 };
 
-UserSchema.pre('save', function saveHook(next) {
+UserSchema.pre("save", function saveHook(next) {
   const user = this;
 
-  if (!user.isModified('password')) return next();
+  if (!user.isModified("password")) return next();
 
   return bcrypt.genSalt((saltError, salt) => {
     if (saltError) {
@@ -43,4 +43,4 @@ UserSchema.pre('save', function saveHook(next) {
   });
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);

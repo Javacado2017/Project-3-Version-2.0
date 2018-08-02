@@ -6,19 +6,19 @@
     //https://www.youtube.com/watch?v=ytRnPV0kRN0&list=PL4cUxeGkcC9iTQ3J5oa6orDIMQKKxl8dC
 
 // DEPENDENCY: 
-const path = require('path');
-const webpack = require('webpack');
-//const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const webpack = require("webpack");
+//const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // DEFINE ENTRY/OUPUT/CONDITIONS: 
 module.exports = {
   // Defines the entry point
-  entry: path.join(__dirname, './client/src/app.js'),
+  entry: path.join(__dirname, "./client/src/app.js"),
 
   // Defines the output point
   output: {
-    path: path.join(__dirname, './client/dist'),
-    filename: 'bundle.js',
+    path: path.join(__dirname, "./client/dist"),
+    filename: "bundle.js",
   },
 
   // Defines the rules of how the client side files are bundled and dumped into the output point
@@ -27,8 +27,8 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        include: path.join(__dirname, './client/src'),
-        loader: 'babel-loader'
+        include: path.join(__dirname, "./client/src"),
+        loader: "babel-loader"
       },
       {
           test: /\.css$/,
@@ -37,11 +37,11 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js','.jsx']
+    extensions: [".js",".jsx"]
   },
   // plugins: [
   //   new HtmlWebpackPlugin({
-  //     template: './server/static/index.html'
+  //     template: "./server/static/index.html"
   //   })
   // ],
   
