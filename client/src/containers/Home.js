@@ -6,8 +6,6 @@ import { withStyles } from "@material-ui/core/styles";
 import { Grid, Card, CardContent, Typography } from "@material-ui/core/";
 import HomeUserIntro from "../components/HomeUserIntro";
 import HomeChartsWidget from "../components/HomeChartsWidget";
-import Charts from "./Charts";
-import News from "./News";
 
 const styles = {
   root: {
@@ -59,12 +57,7 @@ class Home extends React.Component {
  
           </CardContent>
         </Card>
-        <Card>
-          <Charts/>
-        </Card>
-        <Card>
-          <News/>
-        </Card>
+
       </div>
     );
   }

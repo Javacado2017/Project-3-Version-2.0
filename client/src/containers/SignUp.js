@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SignUpForm from '../components/SignUpForm.js';
 
-
 class SignUp extends React.Component {
 
 
@@ -87,6 +86,7 @@ class SignUp extends React.Component {
         errors={this.state.errors}
         user={this.state.user}
       />
+
     );
   }
 

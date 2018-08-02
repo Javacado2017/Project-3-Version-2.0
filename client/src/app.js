@@ -109,10 +109,11 @@ class App extends Component {
            
             <Button color="inherit"> <Link to="/signup">Sign Up</Link></Button>
             <Button color="inherit"> <Link to="/signin">Sign In</Link></Button>
+            <Button color="inherit"> <Link to="/charts">Charts</Link></Button>
+            <Button color="inherit"> <Link to="/news">News</Link></Button>
             </div>
           )}
-           <Button color="inherit"> <Link to="/charts">Charts</Link></Button>
-           <Button color="inherit"> <Link to="/news">News</Link></Button>
+           
 
         </Toolbar>
 
@@ -121,8 +122,8 @@ class App extends Component {
             <PrivateRoute path="/dashboard" component={Dashboard}/>
             <LoggedOutRoute path="/signin" component={SignIn} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <LoggedOutRoute path="/signup" component={SignUp}/>
-            <PropsRoute path="/charts" component={Charts}/>
-            <PropsRoute path="/news" component={News}/>
+            <LoggedOutRoute path="/charts" component={Charts}/>
+            <LoggedOutRoute path="/news" component={News}/>
             <Route path="/signout" component={SignOut}/>
           </div>
 
