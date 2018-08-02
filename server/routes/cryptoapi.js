@@ -30,7 +30,7 @@ var CryptoPriceTrendsAPI = {
         return new Promise((resolve, reject) => {
           axios.get(baseURL)
             .then(function(response) {
-                var objectTrends = response.data["Time Series (Digital Currency Daily)"];
+                var objectTrends = response.data['Time Series (Digital Currency Daily)'];
                 
                 const priceTrends = [];
                 let count = 0;
@@ -39,7 +39,7 @@ var CryptoPriceTrendsAPI = {
 
                     for (let key in objectTrends){
             
-                        var priceData = objectTrends[key]["4a. close (USD)"]
+                        var priceData = objectTrends[key]['4a. close (USD)']
             
                         priceTrends.push({
                             d: moment(key).format('MMM DD'),
@@ -90,7 +90,7 @@ var CryptoPriceCurrentAPI = {
 
                     for (let key in objectCurrent){
                         
-                        var priceData = objectCurrent[key]["1a. price (USD)"]
+                        var priceData = objectCurrent[key]['1a. price (USD)']
 
                         priceCurrent.push({
                             price: parseFloat(priceData.replace(/,/g, '')),

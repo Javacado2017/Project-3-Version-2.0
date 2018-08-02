@@ -42,7 +42,7 @@ var CryptoNewsAPI = {
     },
 
     getSaved: function() {
-        return axios.get("/api/saved");
+        return axios.get('/api/saved');
     },
 
     postSaved: function(article) {
