@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import authenticate from '../modules/authenticate';
+import Auth from '../modules/Auth';
 
 
-class LogoutSignOutFunction extends React.Component {
+class SingOut extends React.Component {
 
   componentDidMount() {
     // deauthenticate user
@@ -21,8 +21,8 @@ class LogoutSignOutFunction extends React.Component {
   }
 }
 
-SignOut.contextTypes = {
+SingOut.contextTypes = {
   router: PropTypes.object.isRequired
 };
 
-export default SignOut;
+export default SingOut;

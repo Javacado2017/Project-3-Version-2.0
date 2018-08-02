@@ -1,6 +1,137 @@
-import React from 'react';
-import {render} from 'react-dom';
+import React, { Component } from 'react';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import appRouter from './appRouter';
+import PropTypes from "prop-types";
 
-render(<appRouter />, document.getElementById('react-app'));
+import { withStyles } from "@material-ui/core/styles";
+import { Toolbar, Button, Typography } from "@material-ui/core/";
+
+const styles = {
+  root: {
+    flexGrow: 1
+  },
+  flex: {
+    flexGrow: 1
+  }
+};
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from 'react-router-dom'
+
+
+
+import Auth from './modules/Auth';
+import Dashboard from './containers/Dashboard.js';
+import Home from './containers/Home.js';
+import Charts from './containers/Charts.js';
+import News from './containers/News.js';
+import SignIn from './containers/SignIn.js';
+import SignOut from './containers/SignOut.js';
+import SignUp from './containers/SignUp.js';
+
+
+injectTapEventPlugin();
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    Auth.isUserAuthenticated() ? (
+      <Component {...props} {...rest} />
+    ) : (
+      <Redirect to={{
+        pathname: '/',
+        state: { from: props.location }
+      }}/>
+    )
+  )}/>
+)
+
+const LoggedOutRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    Auth.isUserAuthenticated() ? (
+      <Redirect to={{
+        pathname: '/',
+        state: { from: props.location }
+      }}/>
+    ) : (
+      <Component {...props} {...rest} />
+    )
+  )}/>
+)
+
+const PropsRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    <Component {...props} {...rest} />
+  )}/>
+)
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      authenticated: false
+    }
+  };
+
+  componentDidMount() {
+    this.toggleAuthenticateStatus()
+  }
+
+  toggleAuthenticateStatus() {
+    this.setState({ authenticated: Auth.isUserAuthenticated() })
+  }
+
+  render() {
+    return (
+
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
+        <Router>
+          <div>
+            <div>
+        <Toolbar>
+          <Typography variant="title" color="inherit" >
+            <Link to="/">BlockTrain</Link>
+          </Typography>
+
+          {this.state.authenticated ? (
+            <div>
+            <Button color="inherit"> <Link to="/dashboard">Dashboard</Link></Button>
+            <Button color="inherit"> <Link to="/signout">Sign Out</Link></Button>  
+            </div>
+          ) : (
+            <div>
+           
+            <Button color="inherit"> <Link to="/signup">Sign Up</Link></Button>
+            <Button color="inherit"> <Link to="/signin">Sign In</Link></Button>
+            </div>
+          )}
+           <Button color="inherit"> <Link to="/charts">Charts</Link></Button>
+           <Button color="inherit"> <Link to="/news">News</Link></Button>
+
+        </Toolbar>
+
+        </div>
+            <PropsRoute exact path="/" component={Home} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
+            <PrivateRoute path="/dashboard" component={Dashboard}/>
+            <LoggedOutRoute path="/signin" component={SignIn} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
+            <LoggedOutRoute path="/signup" component={SignUp}/>
+            <PropsRoute path="/charts" component={Charts}/>
+            <PropsRoute path="/news" component={News}/>
+            <Route path="/signout" component={SignOut}/>
+          </div>
+
+        </Router>
+      </MuiThemeProvider>
+    );
+  }
+}
+
+
+
+export default App;

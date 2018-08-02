@@ -1,21 +1,20 @@
-const express = require("express");
+const express = require('express');
 
-const CryptoTickerSymbol = require("./cryptoapi.js").CryptoTickerSymbol;
-const CryptoPriceTrendsAPI = require("./cryptoapi.js").CryptoPriceTrendsAPI;
-const CryptoPriceCurrentAPI = require("./cryptoapi.js").CryptoPriceCurrentAPI;
-const CryptoNewsAPI = require("./newsapi.js").CryptoNewsAPI;
+const CryptoTickerSymbol = require('./cryptoapi.js').CryptoTickerSymbol;
+const CryptoPriceTrendsAPI = require('./cryptoapi.js').CryptoPriceTrendsAPI;
+const CryptoPriceCurrentAPI = require('./cryptoapi.js').CryptoPriceCurrentAPI;
+const CryptoNewsAPI = require('./newsapi.js').CryptoNewsAPI;
 
 const router = new express.Router();
 
 // // CryptoAPI: ticker symbols
-// router.get("/api/tickerSymbol", (req, res) => {
+// router.get('/api/tickerSymbol', (req, res) => {
 //     return res.status(200).json(CryptoTickerSymbol);
 // });
 
 // CryptoAPI: price trends
-router.get("/api/priceTrends", (req, res) => {
-    
-    CryptoPriceTrendsAPI.runQuery()
+router.get('/api/priceTrends/:type', (req, res) => {
+    CryptoPriceTrendsAPI.runQuery(req.params.type)
     .then(result => {
         return res.status(200).json(result);
     })
@@ -23,9 +22,8 @@ router.get("/api/priceTrends", (req, res) => {
 });
 
 // CryptoAPI: price current
-router.get("/api/priceCurrent", (req, res) => {
-    
-    CryptoPriceCurrentAPI.runQuery()
+router.get('/api/priceCurrent/:type', (req, res) => {
+    CryptoPriceCurrentAPI.runQuery(req.params.type)
     .then(result => {
         return res.status(200).json(result);
     })
@@ -33,8 +31,7 @@ router.get("/api/priceCurrent", (req, res) => {
 });
 
 // NewsAPI: news articles
-router.get("/api/newsArticles", (req, res) => {
-    
+router.get('/api/newsArticles', (req, res) => {
     CryptoNewsAPI.runQuery()
     .then(result => {
         return res.status(200).json(result);

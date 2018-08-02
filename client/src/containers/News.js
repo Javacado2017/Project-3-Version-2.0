@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import NewsArticle from '../sub-components/NewsArticleWidget';
+import NewsArticle from '../components/NewsArticleWidget';
 
 class News extends Component {
   constructor(props) {

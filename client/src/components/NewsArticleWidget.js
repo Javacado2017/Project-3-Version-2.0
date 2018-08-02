@@ -13,33 +13,32 @@ const styles = {
 };
 
 function SimpleMediaCard(props) {
-  const { classes } = props;
+  const { title, description, url, image } = props;
   return (
     <Card style={styles}>
-      <div class="row">
-        <div class="col s6">
+      <div className="row">
+        <div className="col s6">
           <CardMedia>
             <img
               width="100%"
-              src="https://www.ccn.com/wp-content/uploads/2017/06/Facebook-notifications.jpg"
+              src={image}
               alt=""
             />
           </CardMedia>
         </div>
-        <div class="col s6">
+        <div className="col s6">
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2">
-              Opinion | How Blockchain Could Fix Facebook's Fake News Problem
+              {title}
             </Typography>
             <Typography component="p">
-              Facebook has a big fake news problem, and the company can solve
-              that issue by taking a serious look at blockchain technology.
+              {description}
             </Typography>
           </CardContent>
           <CardActions>
             <Button size="small" color="primary">
-              <a href="https://www.ccn.com/opinion-how-blockchain-could-fix-facebooks-fake-news-problem/">
-                Learn More
+              <a href={url} target="_blank">
+                Learn more
               </a>
             </Button>
           </CardActions>
@@ -48,9 +47,5 @@ function SimpleMediaCard(props) {
     </Card>
   );
 }
-
-SimpleMediaCard.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default SimpleMediaCard;

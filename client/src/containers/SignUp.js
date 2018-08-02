@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SignUpForm from '../components/SignUpForm.js';
 
 
-class SignUpPage extends React.Component {
+class SignUp extends React.Component {
 
 
   constructor(props, context) {
@@ -92,8 +92,8 @@ class SignUpPage extends React.Component {
 
 }
 
-SignUpPage.contextTypes = {
+SignUp.contextTypes = {
   router: PropTypes.object.isRequired
 };
 
-export default SignUpPage;
+export default SignUp;

@@ -40,7 +40,7 @@ function validateSignupForm(payload) {
   }
 
   if (!isFormValid) {
-    message = "Check the form for errors.";
+    message = "";
   }
 
   return {
@@ -74,7 +74,7 @@ function validateLoginForm(payload) {
   }
 
   if (!isFormValid) {
-    message = "Check the form for errors.";
+    message = "";
   }
 
   return {
@@ -120,7 +120,7 @@ router.post("/signup", (req, res, next) => {
   })(req, res, next);
 });
 
-router.post("/login", (req, res, next) => {
+router.post("/signin", (req, res, next) => {
   const validationResult = validateLoginForm(req.body);
   if (!validationResult.success) {
     return res.status(400).json({

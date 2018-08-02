@@ -13,7 +13,7 @@ const webpack = require("webpack");
 // DEFINE ENTRY/OUPUT/CONDITIONS: 
 module.exports = {
   // Defines the entry point
-  entry: path.join(__dirname, "./client/src/app.js"),
+  entry: path.join(__dirname, "./client/src/index.js"),
 
   // Defines the output point
   output: {
@@ -28,7 +28,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         include: path.join(__dirname, "./client/src"),
-        loader: "babel-loader"
+        loader: "babel-loader",
+        query: {
+          presets: ["react", "env"],
+          plugins: ["transform-es2015-destructuring", "transform-object-rest-spread"]
+        }
       },
       {
           test: /\.css$/,

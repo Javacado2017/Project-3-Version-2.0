@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch client index.js",
-    "bundle": "webpack --mode production",
+    "start": "npm run bundle && nodemon --watch client index.js",
+    "bundle": "webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,12 +22,14 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     "nodemon": "^1.18.3",
-    "npm ": "^0.21.0",
+    "style-loader": "^0.21.0",
     "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0"
   },
@@ -63,8 +65,8 @@
     "react-dom": "^16.4.1",
     "react-mdl": "^1.11.0",
     "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-tap-event-plugin": "^3.0.3",
-    "style-loader": "^0.21.0",
     "validator": "^10.4.0",
     "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0"

@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import "./stylesheets/ChartsLineGraph.css";
+import HomeChartSamples from './HomeChartSamples';
+
 import { withStyles } from "@material-ui/core/styles";
 import {
   Paper,
@@ -24,18 +27,11 @@ const HomeChartsWidget = ({ classes }) => (
   <div className={classes.root}>
     <Card>
       <CardContent>
-        <Typography variant="subheading" color="textPrimary">
-          <i class="cf cf-btc" /> Bitcoin
+        <Typography variant="subheading" color="primary">
+          <i className="cf cf-btc" /> Bitcoin
         </Typography>
         <Typography variant="display1">$7,749.99</Typography>
-        <Paper>
-          <img
-            height="150"
-            width="200"
-            src="https://www.ccn.com/wp-content/uploads/2017/06/Facebook-notifications.jpg"
-            alt=""
-          />
-        </Paper>
+        <HomeChartSamples type={'btc'}/>
       </CardContent>
     </Card>
   </div>

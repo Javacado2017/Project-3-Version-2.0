@@ -19,6 +19,7 @@ const app = express();
 app.use(express.static('./server/static/'));
 app.use(express.static('./client/dist/'));
 
+
 // DATABASE CALLS
 require('./server/models').connect(config.dbUri);
 
@@ -67,6 +68,7 @@ const authCheckMiddleware = require('./server/middleware/auth-check');
 app.use('/api', authCheckMiddleware);
 
 // ROUTES
+app.use(require("./server/routes/routers"));
 const authRoutes = require('./server/routes/auth');
 const apiRoutes = require('./server/routes/api');
 app.use('/auth', authRoutes);

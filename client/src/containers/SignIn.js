@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import authenticate from '../modules/authenticate';
-import SignInForm from '../sub-components/SignInForm.js';
+import Auth from '../modules/Auth';
+import SignInForm from '../components/SignInForm.js';
 
 
 class SignIn extends React.Component {
@@ -38,7 +38,7 @@ class SignIn extends React.Component {
     const formData = `email=${email}&password=${password}`;
 
     const xhr = new XMLHttpRequest();
-    xhr.open('post', '/auth/login');
+    xhr.open('post', '/auth/signin');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
