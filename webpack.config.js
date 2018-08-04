@@ -26,7 +26,6 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
         include: path.join(__dirname, "./client/src"),
         loader: "babel-loader",
         query: {

@@ -18,7 +18,7 @@ const app = express();
 // STATIC FILES 
 app.use(express.static('./server/static/'));
 app.use(express.static('./client/dist/'));
-
+app.use(express.static(__dirname))
 
 // DATABASE CALLS
 require('./server/models').connect(config.dbUri);
